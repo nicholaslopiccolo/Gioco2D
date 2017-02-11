@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication3;
 
 import java.awt.*;
@@ -35,6 +30,12 @@ public class sceltaPanel extends JPanel  {
                opzioniActionPerformed();
             }
         });
+    
+    nuovaPartita.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+               nuovaPartitaActionPerformed();
+            }
+        });
 }
     
     public void opzioniActionPerformed(){
@@ -50,9 +51,20 @@ public class sceltaPanel extends JPanel  {
             JavaApplication3.sP.setVisible(false);
         }
     }
+    
+    public void nuovaPartitaActionPerformed(){
+        
+        if (JavaApplication3.sP.isVisible()) {
+            
+            JavaApplication3.f.getContentPane().remove(JavaApplication3.sP);
+            JavaApplication3.f.add(JavaApplication3.griglia, BorderLayout.CENTER);
+            //validate e repaint servono per ridisegnare il contenuto del
+            //frame
+            JavaApplication3.f.validate();
+            JavaApplication3.f.repaint();
+            JavaApplication3.griglia.setVisible(true);
+            JavaApplication3.sP.setVisible(false);
+        }
     }
+}
     
-    
-    
-    
-
