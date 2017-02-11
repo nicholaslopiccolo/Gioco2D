@@ -17,6 +17,7 @@ public class JavaApplication3 {
     public static JFrame f = new JFrame("Menu");
     public static sceltaPanel sP = new sceltaPanel();
     public static opzioniPanel oP = new opzioniPanel();
+    public static GrigliaPanel griglia = new GrigliaPanel();
 
     /**
      * @param args the command line arguments
