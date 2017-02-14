@@ -4,11 +4,12 @@ import SideClasses.Sprite;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class Protagonist extends Sprite{
     //********** attributes ***********
     //---- initialise frame size of animations
-    private int MOVERIGHT_SIZE = 5;
+    private int MOVERIGHT_SIZE = 3;
     private int MOVELEFT_SIZE = 5;
     private int JUMP_SIZE = 5;
     private int ATTACK_SIZE = 5;
@@ -17,6 +18,7 @@ public class Protagonist extends Sprite{
     private BufferedImage[] moveRight, moveLeft;
     private BufferedImage[] Jump;
     private BufferedImage[] Attack;
+    private int frameCounter = 0;
     //----- properties
     private int Health;
     private int movementSpeed;
@@ -32,8 +34,7 @@ public class Protagonist extends Sprite{
         loadFrames();//load animation frames
         //----- initialise properties
         setHealth(health);
-        currentFrame = Standby[0];
-        
+        currentFrame = moveRight[0];
     }
     
     //********** setting/getting ***********
@@ -41,10 +42,37 @@ public class Protagonist extends Sprite{
     //********** operators *********
     private final void loadFrames(){
         //!!!non avendo ancora le animazioni, questa parte lo facciamo dopo!!!
+        try{
+             for (int i = 0; i < moveRight.length; i++){
+                moveRight[i] = ImageIO.read(getClass().getResource("../Graphics/Images/Protagonist/moveRight/" + Integer.toString(i) + ".png"));
+             }  
+        }catch(Exception ex){
+            System.out.println("dasdasd");
+        }
+
     }
     //********** operators ***********
-    public void moveRight(){/***** DA IMPLEMENTARE*****/}
-    public void moveLeft(){/***** DA IMPLEMENTARE****/}
-    public void Jump(){/***** DA IMPLEMENTARE****/}
-    public void Attack(){/***** DA IMPLEMENTARE****/}
+    public void refreshFrame(){
+        frameCounter = 0;
+    }
+    public void moveRight(){
+        if (frameCounter >= moveRight.length) frameCounter = 0;
+        currentFrame = moveRight[frameCounter];
+        frameCounter++;
+    }
+    public void moveLeft(){
+        if (frameCounter >= moveLeft.length) frameCounter = 0;
+        currentFrame = moveLeft[frameCounter];
+        frameCounter++;
+    }
+    public void Jump(){
+        if (frameCounter >= Jump.length) frameCounter = 0;
+        currentFrame = Jump[frameCounter];
+        frameCounter++;
+    }
+    public void Attack(){
+        if (frameCounter >= Attack.length) frameCounter = 0;
+        currentFrame = Attack[frameCounter];
+        frameCounter++;
+    }
 }

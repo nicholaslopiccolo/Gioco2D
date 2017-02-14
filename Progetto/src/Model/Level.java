@@ -49,6 +49,8 @@ public class Level {
     private void loadLevel(int i){
         levelPath = "src/Model/Levels/" + Integer.toString(i);
         loadScene(currentScene);//carichiamo la scena
+        //***** load characters ****
+        protagonist = new Protagonist(200,200,"protagonist",true,true,100);
     }
     
     private void loadScene(int scene){

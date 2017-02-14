@@ -31,6 +31,7 @@ public class GameManager {
         InGame = true;
         //iniziare la collisione
         while(InGame){
+            Level.protagonist.moveRight();
             MainApp.gamePanel.repaint();
         }
     }

@@ -42,6 +42,7 @@ public class GrigliaPanel extends JPanel {
                 g2.drawLine(0, i*32, HEIGHT, i*32);
                 g2.drawLine(i*32, 0, i*32, WIDTH);
             }
+            g2.drawImage(Level.protagonist.getCurrentFrame(), Level.protagonist.getPositionX(),Level.protagonist.getPositionY(), this);
             //---------------! disegno le mattonelle !----------------
             for (int i = 0; i < Level.TILE_SIZE; i++){
                 g2.drawImage(Level.tiles[i].getCurrentFrame(),Level.tiles[i].getPositionX(), Level.tiles[i].getPositionY(),null);
