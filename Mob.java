@@ -43,6 +43,8 @@ public class Mob extends Sprite {
         //!!!non avendo ancora le animazioni, questa parte lo facciamo dopo!!!
         try{
              for (int i = 0; i < moveRight.length; i++){
+                 
+                 //cambia le immagini del mob mancano anche i movimenti randomici
                 moveRight[i] = ImageIO.read(getClass().getResource("../Graphics/Images/Protagonist/moveRight/" + Integer.toString(i) + ".png"));
              }  
         }catch(Exception ex){}
